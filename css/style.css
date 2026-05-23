@@ -252,7 +252,7 @@ img.name-hero ~ .underline-crayon {
 
 /* ── SCREEN 3 LETTER ── */
 #s3 .content {
-  width:min(1000px,92vw);
+  width:min(1800px,92vw);
 }
 
 .letter-card {
