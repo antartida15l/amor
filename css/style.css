@@ -35,6 +35,7 @@ canvas.bg {
   max-width:500px;
 }
 
+/* GLOBOS — imagen o svg, mismo tamaño controlado */
 .balloons-svg,
 img.balloons-svg {
   width:clamp(180px, 38vw, 260px);
@@ -56,27 +57,31 @@ img.balloons-svg {
   flex-shrink:0;
 }
 
+/* NOMBRE — imagen o h1, tamaño fijo y controlado */
 .name-hero,
 img.name-hero {
   width:clamp(260px, 65vw, 480px);
   height:auto;
-  max-height:160px;
+   max-height:160px;
   object-fit:contain;
   display:block;
   margin:0 auto;
   flex-shrink:0;
+  /* para el h1 de texto */
   font-family:'Pinyon Script',cursive;
   font-size:clamp(64px,15vw,100px);
   line-height:0.95;
   color:#fff;
 }
 
+/* quita animación y sombra de texto cuando es imagen */
 img.name-hero {
   animation:none;
   text-shadow:none;
   filter:drop-shadow(0 0 20px rgba(244,114,182,0.4));
 }
 
+/* sombra animada solo cuando es texto h1 */
 h1.name-hero {
   text-shadow:0 0 30px rgba(244,114,182,0.5);
   animation:namepulse 2.4s ease-in-out infinite;
@@ -94,6 +99,7 @@ h1.name-hero {
   flex-shrink:0;
 }
 
+/* Ocultar underline si hay imagen de nombre */
 img.name-hero ~ .underline-crayon {
   display:none;
 }
@@ -245,17 +251,8 @@ img.name-hero ~ .underline-crayon {
 }
 
 /* ── SCREEN 3 LETTER ── */
-
-/* CAMBIO 1: pantalla 3 permite scroll vertical */
-#s3 {
-  align-items: flex-start;
-  overflow-y: auto;
-  padding: 16px 0;
-}
-
 #s3 .content {
-  width: min(800px, 92vw);
-  margin: auto;
+  width:min(1800px,92vw);
 }
 
 .letter-card {
@@ -278,30 +275,36 @@ img.name-hero ~ .underline-crayon {
 .cblef { bottom:10px; left:10px; border-width:0 0 2px 2px; }
 .cbrig { bottom:10px; right:10px; border-width:0 2px 2px 0; }
 
-/* CAMBIO 2: foto en flujo normal, no absolute */
-.photo-box {
-  position: relative;
-  top: auto;
-  right: auto;
-  align-self: flex-end;
-  margin-bottom: -8px;
-  width:80px; height:80px;
-  border:2px dashed rgba(192,132,252,0.55);
-  border-radius:8px;
-  display:flex; align-items:center; justify-content:center;
-  cursor:pointer;
-  font-size:12px; color:#a78bfa;
-  font-family:'Caveat',cursive;
-  overflow:hidden;
-  transition:background 0.2s;
+.letter-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
 }
-.photo-box:hover { background:rgba(192,132,252,0.08); }
+
+.photo-box {
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+  border: 2px dashed rgba(192,132,252,0.55);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 12px;
+  color: #a78bfa;
+  font-family: 'Caveat', cursive;
+  overflow: hidden;
+  transition: background 0.2s;
+}
+.photo-box:hover { background: rgba(192,132,252,0.08); }
 .photo-box img {
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  border-radius:6px;
-  display:block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
 }
 .photo-box input { display:none; }
 
@@ -311,24 +314,26 @@ img.name-hero ~ .underline-crayon {
   color:#f9a8d4;
 }
 
-/* CAMBIO 3: altura del textarea adaptable */
 .letter-area {
-  min-height: clamp(200px, 50vh, 420px);
+  min-height:420px;
   background:none;
   border:none;
   outline:none;
   resize:none;
   overflow:hidden;
+
   color:#fff;
   font-family:'Caveat',cursive;
   font-size:clamp(16px,3vw,20px);
   line-height:2;
   width:100%;
+
   background-image:repeating-linear-gradient(
     transparent,transparent 37px,
     rgba(255,255,255,0.06) 37px,
     rgba(255,255,255,0.06) 38px
   );
+
   background-position:0 4px;
 }
 .letter-area::placeholder { color:rgba(255,255,255,0.22); }
@@ -337,4 +342,7 @@ img.name-hero ~ .underline-crayon {
   font-family:'Pinyon Script',cursive;
   font-size:clamp(22px,4vw,30px);
   color:#a78bfa; text-align:right;
+}
+#s3.active {
+  overflow-y: auto !important;
 }
