@@ -332,3 +332,43 @@ img.name-hero ~ .underline-crayon {
   font-size:clamp(22px,4vw,30px);
   color:#a78bfa; text-align:right;
 }
+
+@media (max-width: 768px){
+
+  #s3 .content{
+    width:95vw;
+    padding:0;
+  }
+
+  .letter-card{
+    padding:
+      110px   /* espacio arriba para la foto */
+      18px
+      24px;
+  }
+
+  .photo-box{
+    top:18px;
+    left:50%;
+    transform:translateX(-50%);
+
+    width:90px;
+    height:90px;
+  }
+
+  .letter-to{
+    text-align:center;
+    margin-top:8px;
+  }
+
+  .letter-area{
+    min-height:320px;
+    font-size:18px;
+    line-height:1.8;
+  }
+
+  .letter-sign{
+    text-align:center;
+    margin-top:10px;
+  }
+}
